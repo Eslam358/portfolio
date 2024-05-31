@@ -1,0 +1,104 @@
+@import "../../classes.scss";
+
+main.main {
+  // align-items: start;
+  gap: 2rem;
+
+  @include Tablets-max {
+    flex-direction: column;
+  }
+
+  .left {
+
+    ul{
+      @include Tablets-max {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+      li {
+        width: 120px;
+        padding: 0.8rem;
+        text-align: center;
+        border: 1px solid var(--border);
+        color: var(--subtitle);
+        border-radius: 5px;
+        margin-bottom: 0.7rem;
+        opacity: 0.7;
+        transition: 0.3s;
+        text-transform: capitalize;
+        background-color: var(--bgHeader);
+        &:hover {
+          // border: 1px solid var(--blue);
+          // background-color: var(--bgHeader);
+          color: var(--title);
+          opacity: 1;
+        }
+        &.active {
+          border: 1px solid var(--blue);
+          // background-color: var(--bgHeader);
+          color: var(--title);
+          opacity: 1;
+        }
+      }
+
+    }
+
+  }
+  .right {
+    flex-wrap: wrap;
+    article {
+      width: 17rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+      border-radius: 5px;
+      .img {
+        overflow: hidden;
+        img {
+          width: 100%;
+        }
+      }
+      .info {
+        padding: 1rem;
+        h3 {
+          margin-bottom: 1rem;
+          color: var(--title);
+        }
+        p {
+          font-size: 0.8rem;
+          line-height: 1.2rem;
+          color: var(--subtitle);
+        }
+      }
+      .action {
+        padding: 0rem 1rem 1rem;
+
+        .icon {
+          span {
+            font-size: 1.2rem;
+            color: var(--icon);
+            &:hover {
+              cursor: pointer;
+              color: var(--icon-hover);
+              font-size: 1.23rem;
+            }
+          }
+        }
+        .more {
+          color: var(--blue);
+          &:hover {
+            font-size: 1.06rem;
+            cursor: pointer;
+          }
+        }
+      }
+      &:hover {
+        rotate: 2deg;
+        transform: scale(1.01);
+        border: 1px solid var(--blue);
+      }
+    }
+  }
+}

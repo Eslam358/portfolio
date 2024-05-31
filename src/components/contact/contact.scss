@@ -1,0 +1,109 @@
+@import "../../classes.scss";
+// @import "../../index.scss";
+
+section.section{
+  h2{
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--title);
+    span{
+      margin-right: 3rem;
+      color: var(--icon);
+    }
+  }
+  p{
+    color: var(--subtitle);
+    margin-bottom: 2rem;
+  }
+  .main-Contact{
+    @include mobile {
+      justify-content: center;
+    
+      }
+  }
+.form{
+  padding-top: 2rem;
+  flex: 1.5;
+
+  form{
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // flex-direction: column;
+    gap: 30px 20px ;
+    @include mobile {
+      align-items: center;
+      }
+    label{
+color: var(--subtitle);
+      input{
+        padding: 10px;
+        font-size: 20px;
+      border: 1px solid var(--border);
+        background-color: var(--bgHeader);
+        color: var(--title);
+        border-radius: 10px;
+        &:focus{
+          outline: 1px solid var(--blue);
+        }
+      }
+      @media (max-width: 555px) {
+        flex-direction: column;
+        align-items: start;
+      }
+      @include mobile {
+        align-items: center;
+        }
+    }
+    textarea{
+      height: 200px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      font-size: 20px;
+      background-color: var(--bgHeader);
+      color: var(--title);
+      border-radius: 10px;
+    &:focus{
+      outline: 1px solid var(--blue);
+    }
+    
+    }
+  }
+  button{
+  
+    width: 150px;
+    padding: 15px;
+    border-radius: 10px;
+    border:1px solid var(--border);
+    background-color: var(--icon);
+    color: var(--bgHeader);
+    &:hover{
+      background-color: var(--icon-hover);
+  
+      border-color: var(--blue);
+    }
+
+
+  }
+  .Message{
+    text-align: center;
+    height: 10px;
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(98, 156, 39);
+    margin-bottom: 15px;
+  }
+}
+
+.animation {
+  flex: 1;
+  & > div {
+    width: 300px;
+  }
+}
+.Animation_done{
+  width: 50px;
+}
+}

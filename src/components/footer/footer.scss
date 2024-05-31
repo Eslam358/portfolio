@@ -1,0 +1,21 @@
+@import "../../classes.scss";
+
+footer{
+padding-top: 0;
+  padding-bottom: 35px;
+  color: var(--subtitle);
+  @include Tablets-max {
+    flex-direction: column;
+    }
+
+  ul {
+    li{
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover{
+        color: var(--blue);
+        scale: 1.1;
+      }
+    }
+  }
+}
