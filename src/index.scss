@@ -41,7 +41,6 @@ html {
 
   --container-padding: 4.8rem;
   --container-margin: 4.8rem;
-  
 }
 
 .light {
@@ -67,16 +66,14 @@ ul {
   list-style: none;
 }
 
-button{
+button {
   all: unset;
   text-align: center;
 }
 
-
-a{
+a {
   text-decoration: none;
   color: inherit;
-
 }
 
 @mixin mobile {
@@ -101,23 +98,48 @@ a{
 }
 
 @include mobile {
-  body{
+  body {
     --container-padding: 1rem;
     --container-margin: 1rem;
-
   }
 }
 @include Tablets {
-  body{
+  body {
     --container-padding: 2rem;
     --container-margin: 2rem;
-
   }
 }
-@include laptops  {
-  body{
+@include laptops {
+  body {
     --container-padding: 2rem;
     --container-margin: 2rem;
+  }
+}
+
+.button.float {
+  animation: top_done 0.7s linear  alternate-reverse infinite   ;
+  position: fixed;
+  transition: 0.3s;
+  visibility: hidden;
+  right: 30px;
+  bottom: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--blue);
+
+  &.active {
+    visibility: visible;
+  }
+  &:hover {
+    scale: 1.2;
+    font-size: 1.3rem;
+  }
+
+  &:focus {
+    box-shadow: 1px 18px 20px 0px red;
+    background-color: rgb(250, 11, 178);
+    transform: translateY(-700px);
 
   }
 }

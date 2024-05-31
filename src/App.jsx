@@ -4,11 +4,12 @@ import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer";
 import Main from "./components/main/main";
 import { useEffect, useState } from "react";
-
-
+import { useRef } from "react";
 
 function App() {
-  const [dark, setdark] = useState((localStorage.getItem("dark") !== "false"?true :false));
+  const [dark, setdark] = useState(
+    localStorage.getItem("dark") !== "false" ? true : false
+  );
 
   // if (localStorage.getItem("dark") !== null) {
   //   setdark(localStorage.getItem("dark") === "true" )
@@ -20,17 +21,27 @@ function App() {
 
   useEffect(() => {
     const body = document.querySelector("body");
-    if (dark ) {
+    if (dark) {
       body.className = "dark";
-    
     } else {
       body.className = "light";
       // localStorage.setItem("dark", "false" );
     }
   }, [dark]);
+  const button_top = useRef(null);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      console.log(scrollY);
+      if (scrollY > 750) {
+        button_top.current.classList.add("active");
+      } else {
+        button_top.current.classList.remove("active");
+      }
+      console.log(button_top);
+    });
+  }, []);
   return (
     <div className={dark ? "dark App" : "App light"}>
-
       <Header dark={dark} setdark={setdark} />
       <div className="hr-between" />
       <Hero />
@@ -40,6 +51,12 @@ function App() {
       <Contact />
       <hr className="hr-between" />
       <Footer />
+
+      <a
+        ref={button_top}
+        href="#"
+        className="button float icon-chevron-up flex center "
+      />
     </div>
   );
 }
