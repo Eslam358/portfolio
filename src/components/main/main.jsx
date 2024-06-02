@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./main.scss";
+import { motion, useScroll } from "framer-motion";
 import { myProjects } from "../../data";
 const Main = () => {
   const [active, setactive] = useState("All");
@@ -56,9 +57,15 @@ const Main = () => {
       </section>
       <section className="right  flex gap-1 center">
         {Arr.map((a, ind) => (
-          <article key={ind}>
+          <motion.article
+            // layout
+            initial={ind % 2 === 0?{ transform: `scale(0.4) translateX(300px)` }:{ transform: `scale(0.4) translateX(-300px)` }}
+            // animate={{ transform: "scale(1)" }}
+            whileInView={{ transform: "scale(1) translateX(0px)" }}
+            transition={{ type: "spring", damping: 6, stiffness: 33, delay: 0 }}
+            key={ind}
+          >
             <div className="img">
-            
               <img src={a.imgPath} alt="" />
             </div>
             <div className="info">
@@ -78,7 +85,7 @@ const Main = () => {
                 <span className="  icon-arrow-right" />
               </div>
             </div>
-          </article>
+          </motion.article>
         ))}
       </section>
     </main>
