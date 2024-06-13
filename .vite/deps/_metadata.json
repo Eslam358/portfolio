@@ -1,0 +1,43 @@
+{
+  "hash": "0b8eaa9a",
+  "configHash": "f9d32172",
+  "lockfileHash": "0059a803",
+  "browserHash": "19fef6b8",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "49595f96",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "f966b70d",
+      "needsInterop": true
+    },
+    "lottie-react": {
+      "src": "../../node_modules/lottie-react/build/index.es.js",
+      "file": "lottie-react.js",
+      "fileHash": "8fdb9ace",
+      "needsInterop": false
+    },
+    "@formspree/react": {
+      "src": "../../node_modules/@formspree/react/dist/index.mjs",
+      "file": "@formspree_react.js",
+      "fileHash": "1fd84d3e",
+      "needsInterop": false
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "d4b0c6a6",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-ATZAHYIB": {
+      "file": "chunk-ATZAHYIB.js"
+    }
+  }
+}

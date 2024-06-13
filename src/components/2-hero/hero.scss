@@ -42,7 +42,7 @@
       color: var(--subtitle);
     }
     .icon {
-      span {
+     a span {
         // display: inline-block;
         font-size: 1.5rem;
         margin-left: 1rem;
@@ -68,6 +68,27 @@
           &.icon-linkedin-square {
             color: #0a66c2;
           }
+        }
+      }
+      .download_cv{
+        padding: 2px 10px;
+    
+        background-color: #a1a1aa;
+        // color: #2c2c2c;
+        color: inherit;
+        // font-weight: bold;
+        border-radius: 30px;
+        font-size: 1.3rem;
+        margin-left: 1rem;
+        cursor: pointer;
+        &:hover{
+         background-color: #737374;
+        }
+        span{
+          display: inline-block;
+          rotate: 180deg;
+          // font-weight: bold;
+          color: inherit;
         }
       }
     }

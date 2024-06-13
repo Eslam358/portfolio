@@ -2,7 +2,7 @@ import "./contact.scss";
 
 import { useForm, ValidationError } from "@formspree/react";
 
-import Lottie, { useLottie } from "lottie-react";
+import Lottie from "lottie-react";
 
 import groovyWalkAnimation from "../../animation/contact.json";
 import Animation_done from "../../animation/done.json";
@@ -13,7 +13,7 @@ const Contact = () => {
 
   const [state, handleSubmit] = useForm("xbjneqjr");
   return (
-    <section className="section">
+    <section className="section" id="Contact">
       <h2>
         <span className="icon-envelope-o" />
         contact us.

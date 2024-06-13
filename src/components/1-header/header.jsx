@@ -2,11 +2,12 @@ import { useState } from "react";
 import "./header.scss";
 
 // eslint-disable-next-line react/prop-types
-const Header = ({ dark, setdark }) => {
+const Header = ({ dark, setdark, visible }) => {
   const [menu, setmenu] = useState(false);
 
   return (
-    <header className="header flex between ">
+    <header style={{top:!visible?"-100px":"0px"}} className="header flex between ">
+    {/* <header style={{visibility:visibil?"visible":"hidden"}} className="header flex between "> */}
       <div className="Tablets-none" />
       <div className="icon Tablets">
         <button onClick={() => setmenu(true)}>
@@ -16,19 +17,19 @@ const Header = ({ dark, setdark }) => {
       <nav className="Tablets-none">
         <ul className="flex gap-2">
           <li>
-            <a href="#"> About</a>
+            <a href="#"> Home</a>
           </li>
           <li>
-            <a href="#">Articles</a>
+            <a href="#hero">about</a>
           </li>
           <li>
-            <a href="#">Projects</a>
+            <a href="#Projects">Projects</a>
           </li>
           <li>
-            <a href="#">Speaking</a>
+            <a href="#skills">skills</a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <a href="#Contact">Contact</a>
           </li>
         </ul>
       </nav>
@@ -50,21 +51,21 @@ const Header = ({ dark, setdark }) => {
       <div className={menu ? "overflow Tablets active" : " overflow Tablets "}>
         <div className={menu ? "Tablets menu  active" : " Tablets menu  "}>
           <ul className="flex  column">
-            <li>
-              <a href="#"> About</a>
-            </li>
-            <li>
-              <a href="#">Articles</a>
-            </li>
-            <li>
-              <a href="#">Projects</a>
-            </li>
-            <li>
-              <a href="#">Speaking</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
+          <li>
+            <a href="#"> Home</a>
+          </li>
+          <li>
+            <a href="#hero">about</a>
+          </li>
+          <li>
+            <a href="#Projects">Projects</a>
+          </li>
+          <li>
+            <a href="#skills">skills</a>
+          </li>
+          <li>
+            <a href="#Contact">Contact</a>
+          </li>
           </ul>
           <div className="icon ">
             <button onClick={() => setmenu(false)}>
