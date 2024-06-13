@@ -6,7 +6,7 @@ import { motion, useScroll } from "framer-motion";
 const Hero = () => {
   const lottieRef = useRef();
 
-  const pdf_down = "http://localhost:5173/cv/frontEnd_Eslam.pdf";
+  const pdf_down = "https://portfolio-eslam.netlify.app/cv/frontEnd_Eslam.pdf";
 
   const download_file = (url) => {
     fetch(url)

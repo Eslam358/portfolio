@@ -6,8 +6,11 @@ import Main from "./components/main/main";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 
-
-const Token_headers =""
+const Token_headers = {
+  headers: {
+    Authorization: `token ${import.meta.env.VITE_API_TOKEN}`,
+  },
+};
 function App() {
   const [lang, setlang] = useState({});
   const [repo, setrepo] = useState([]);
@@ -50,7 +53,6 @@ function App() {
       .then((a) => a.json())
       .then((data) => {
         setrepo(data);
-    
 
         data.forEach((repo) => {
           fetch(repo.languages_url, Token_headers)
@@ -60,13 +62,15 @@ function App() {
                 ...prevlanguages,
                 [repo.name]: lang,
               }));
-
             })
             .catch((er) => {
               console.log(`fetch repo name ${repo.name}`, er);
             });
 
-          fetch(`https://api.github.com/repos/Eslam358/${repo.name}/contents`, Token_headers)
+          fetch(
+            `https://api.github.com/repos/Eslam358/${repo.name}/contents`,
+            Token_headers
+          )
             .then((a) => a.json())
             .then((fileD) => {
               setfiles((prevfile) => ({
@@ -113,7 +117,6 @@ function App() {
 
   // ****************************************************************
 
-
   return (
     <div className={dark ? "dark App" : "App light"}>
       <Header
@@ -122,7 +125,7 @@ function App() {
         setdark={setdark}
       />
       <div className="hr-between" />
-   
+
       <Hero />
       <hr className="hr-between" />
       <Main repo={repo} lang={lang} files={files} netlify={netlify} />
