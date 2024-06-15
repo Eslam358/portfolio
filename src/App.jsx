@@ -5,6 +5,7 @@ import Footer from "./components/footer/footer";
 import Main from "./components/main/main";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
+import Skills from "./components/skills/skills";
 
 const Token_headers = {
   headers: {
@@ -129,6 +130,8 @@ function App() {
       <Hero />
       <hr className="hr-between" />
       <Main repo={repo} lang={lang} files={files} netlify={netlify} />
+      <hr className="hr-between" />
+      <Skills/>
       <hr className="hr-between" />
       <Contact />
       <hr className="hr-between" />

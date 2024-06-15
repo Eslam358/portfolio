@@ -51,21 +51,21 @@ const Header = ({ dark, setdark, visible }) => {
       <div className={menu ? "overflow Tablets active" : " overflow Tablets "}>
         <div className={menu ? "Tablets menu  active" : " Tablets menu  "}>
           <ul className="flex  column">
-          <li>
-            <a href="#"> Home</a>
-          </li>
-          <li>
-            <a href="#hero">about</a>
-          </li>
-          <li>
-            <a href="#Projects">Projects</a>
-          </li>
-          <li>
-            <a href="#skills">skills</a>
-          </li>
-          <li>
-            <a href="#Contact">Contact</a>
-          </li>
+        
+            <a href="#"><li>Home</li> </a>
+      
+        
+            <a href="#hero"><li>about</li> </a>
+          
+        
+            <a href="#Projects"><li>Projects</li></a>
+          
+        
+            <a href="#skills"><li>skills</li> </a>
+          
+        
+            <a href="#Contact"><li>Contact</li> </a>
+          
           </ul>
           <div className="icon ">
             <button onClick={() => setmenu(false)}>

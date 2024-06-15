@@ -1,11 +1,20 @@
 import "./hero.scss";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../animation/dev.json";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 const Hero = () => {
   const lottieRef = useRef();
-
+  const [copy_text, setcopy_text] = useState("false");
+ const copy_phone = (text, mas)=>{
+  navigator.clipboard.writeText(text).then(()=>{
+     setcopy_text(`copy the ${mas}`)
+     setTimeout(() => {
+       setcopy_text("false")
+      
+     }, 4000);
+    }).catch((err)=> console.error("fault"))
+ }
   const pdf_down = "https://portfolio-eslam.netlify.app/cv/frontEnd_Eslam.pdf";
 
   const download_file = (url) => {
@@ -64,29 +73,37 @@ const Hero = () => {
             {" "}
             <span className="icon-linkedin-square" />
           </a>
-          <a href="http://" target="_blank" rel="noopener noreferrer">
-            {" "}
+          <a href="https://www.facebook.com/profile.php?id=100004459908381" target="_blank" rel="noopener noreferrer">
+            {""}
             <span className="icon-facebook-square" />
           </a>
-          <a href="http://" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/201002679358" target="_blank" rel="noopener noreferrer">
             {" "}
             <span className="icon-twitter" />{" "}
           </a>
-          <a href="http://" target="_blank" rel="noopener noreferrer">
+          <a href="https://api.whatsapp.com/qr/BF5TOKTUKX4IA1?autoload=1&app_absent=0" target="_blank" rel="noopener noreferrer">
             {" "}
             <span className="icon-whatsapp" />{" "}
           </a>
-          <a href="http://" target="_blank" rel="noopener noreferrer">
+          <a href="https://t.me/ISLAMFAYEZ358" target="_blank" rel="noopener noreferrer">
             {" "}
             <span className="icon-telegram" />{" "}
           </a>
+          <button title="copy phone number" className="copy phone" onClick={()=> copy_phone("01002679358", "phone")} rel="noopener noreferrer">
+            {" "}
+            <span className="icon-call" />{" "}
+          </button>
+          <button title="copy email" className="copy email" onClick={()=> copy_phone("eslamaa900@gmail.com", "email")} rel="noopener noreferrer">
+            {" "}
+            <span className="icon-envelope-o" />{" "}
+          </button>
           {/* <a  href="">        */}
           <button
             className="download_cv"
             title="download the CV "
             onClick={() => download_file(pdf_down)}
           >
-            CV <span className=" icon-chevron-up  " />
+            CV <span className=" flex center icon-download " />
           </button>
           {/* </a> */}
         </div>
@@ -103,6 +120,7 @@ const Hero = () => {
           }}
         />
       </div>
+      {copy_text !== "false" && <div className="text-copy">{copy_text}</div>}
     </div>
   );
 };

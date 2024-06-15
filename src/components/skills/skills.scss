@@ -1,0 +1,66 @@
+@import "../../classes.scss";
+@import "../../index.scss";
+
+.skills {
+  h2 {
+    font-size: 2rem;
+    color: var(--title);
+  }
+  .co_skill {
+    color: var(--title);
+    margin-top: 30px;
+    flex-wrap: wrap;
+    gap: 3rem;
+    
+    @media (max-width: 651px)  {
+      gap: 1.5rem;
+      // justify-content: space-between !important;
+     
+    }
+    .skill {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      box-shadow: 0 0 9px -2px var(--title);
+      width: 190px;
+      border-radius: 15px;
+      transition: 0.3s;
+      span {
+        transition: 0.3s;
+        &:last-child{
+font-size: 1.5rem;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 0 9px 0px var(--blue);
+          scale: 1.04;
+        span:not(:first-child) {
+          scale: 1.4;
+        }
+        span:first-child {
+          scale: 1.1;
+        }
+      }
+
+      .icon-github-alt {
+        color: var(--title);
+      }
+
+      @media (max-width: 651px)  {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 1rem;
+        padding: 20px;
+        width: 100px;
+        span:last-child{
+          font-size:  1.5rem;
+        }
+        &:first-child{
+          font-size: 0.8rem;
+        }
+      }
+
+    }
+  }
+}
