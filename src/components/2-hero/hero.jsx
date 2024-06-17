@@ -6,15 +6,17 @@ import { motion, useScroll } from "framer-motion";
 const Hero = () => {
   const lottieRef = useRef();
   const [copy_text, setcopy_text] = useState("false");
- const copy_phone = (text, mas)=>{
-  navigator.clipboard.writeText(text).then(()=>{
-     setcopy_text(`copy the ${mas}`)
-     setTimeout(() => {
-       setcopy_text("false")
-      
-     }, 4000);
-    }).catch((err)=> console.error("fault"))
- }
+  const copy_phone = (text, mas) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        setcopy_text(`copy the ${mas}`);
+        setTimeout(() => {
+          setcopy_text("false");
+        }, 4000);
+      })
+      .catch((err) => console.error("fault"));
+  };
   const pdf_down = "https://portfolio-eslam.netlify.app/cv/frontEnd_Eslam.pdf";
 
   const download_file = (url) => {
@@ -36,16 +38,12 @@ const Hero = () => {
   return (
     <div className="hero flex between" id="hero">
       <div className="info ">
-        <motion.div className="img"
-        
-        initial={
-         
-            { transform: `scale(0.5)` }
-         
-        }
-        // animate={{ transform: "scale(1)" }}
-        whileInView={{ transform: "scale(1) " }}
-        transition={{ type: "spring", damping: 5, stiffness: 53}}
+        <motion.div
+          className="img"
+          initial={{ transform: `scale(0.5)` }}
+          // animate={{ transform: "scale(1)" }}
+          whileInView={{ transform: "scale(1) " }}
+          transition={{ type: "spring", damping: 5, stiffness: 53 }}
         >
           <img src="eslam.png" alt="" />
         </motion.div>
@@ -55,7 +53,33 @@ const Hero = () => {
           with good skills. Seeking for good opportunity to improve my skills
           and learn new skills.
         </p>
-
+        <h4>
+          {" "}
+          <button className="copy phone" rel="noopener noreferrer">
+            {" "}
+            <span className=" icon-call" />{" "}
+          </button>{" "}
+          01002679358
+          <span
+            title="copy phone number"
+            onClick={() => copy_phone("01002679358", "phone")}
+            className="icon-content_copy"
+          />
+        </h4>
+        <h4>
+          <a
+            href="mailto:eslam900aa@gmail.com"
+            className="copy email"
+            rel="noopener noreferrer"
+          >
+            <span className="icon-envelope-o" /> eslamaa900@gmail.com
+          </a>
+          <span
+            className="icon-content_copy"
+            title="copy email"
+            onClick={() => copy_phone("eslamaa900@gmail.com", "email")}
+          />
+        </h4>
         <div className="icon">
           <a
             href="https://github.com/ESlam358"
@@ -73,31 +97,57 @@ const Hero = () => {
             {" "}
             <span className="icon-linkedin-square" />
           </a>
-          <a href="https://www.facebook.com/profile.php?id=100004459908381" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.facebook.com/profile.php?id=100004459908381"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {""}
             <span className="icon-facebook-square" />
           </a>
-          <a href="https://wa.me/201002679358" target="_blank" rel="noopener noreferrer">
+          {/* <a
+            href="https://wa.me/201002679358"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {" "}
             <span className="icon-twitter" />{" "}
-          </a>
-          <a href="https://api.whatsapp.com/qr/BF5TOKTUKX4IA1?autoload=1&app_absent=0" target="_blank" rel="noopener noreferrer">
+          </a> */}
+          <a
+            href="https://wa.me/201002679358"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {" "}
             <span className="icon-whatsapp" />{" "}
           </a>
-          <a href="https://t.me/ISLAMFAYEZ358" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://t.me/ISLAMFAYEZ358"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {" "}
             <span className="icon-telegram" />{" "}
           </a>
-          <button title="copy phone number" className="copy phone" onClick={()=> copy_phone("01002679358", "phone")} rel="noopener noreferrer">
+          {/* <button
+            title="copy phone number"
+            className="copy phone"
+            onClick={() => copy_phone("01002679358", "phone")}
+            rel="noopener noreferrer"
+          >
             {" "}
             <span className="icon-call" />{" "}
-          </button>
-          <button title="copy email" className="copy email" onClick={()=> copy_phone("eslamaa900@gmail.com", "email")} rel="noopener noreferrer">
+          </button> */}
+          {/* <button
+            title="copy email"
+            className="copy email"
+            onClick={() => copy_phone("eslamaa900@gmail.com", "email")}
+            rel="noopener noreferrer"
+          >
             {" "}
             <span className="icon-envelope-o" />{" "}
-          </button>
-          {/* <a  href="">        */}
+          </button> */}
+
           <button
             className="download_cv"
             title="download the CV "
@@ -120,7 +170,12 @@ const Hero = () => {
           }}
         />
       </div>
-      {copy_text !== "false" && <div className="text-copy">{copy_text}</div>}
+      {copy_text !== "false" && (
+        <div className="text-copy">
+          <span className="icon-content_copy" />
+           {copy_text} 
+        </div>
+      )}
     </div>
   );
 };

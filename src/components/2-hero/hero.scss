@@ -39,10 +39,52 @@
       line-height: 2rem;
       letter-spacing: 1px;
       word-spacing: 3px;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
       color: var(--subtitle);
     }
+    h4 {
+      line-height: 2rem;
+      letter-spacing: 1px;
+      word-spacing: 3px;
+      color: var(--subtitle);
+  
+      transition: 0.3s;
+     
+      // &:hover:not(:last-of-type) {
+      //   color: var(--blue);
+  
+      //   scale: 1.02;
+      // }
+      a {
+        cursor: pointer;
+        transition: 0.3s;
+        display: inline-block;
+        &:hover {
+          color: var(--blue);
+     
+          scale: 1.02;
+        }
+      }
+      .copy {
+        span {
+          margin-right: 5px;
+          margin-left: 15px;
+          font-size: 20px;
+
+       
+        }
+      }
+      .icon-content_copy {
+        margin-left: 1rem;
+        color: var(--title-alpha);
+        cursor: pointer;
+        &:hover {
+          color: chartreuse;
+        }
+      }
+    }
     .icon {
+      margin-top: 1rem;
       a span {
         // display: inline-block;
         font-size: 1.5rem;
@@ -101,14 +143,14 @@
           display: block;
         }
       }
-      .copy {
-        span {
-          margin-left: 10px;
-          font-size: 24px;
-          color: var(--subtitle);
-          cursor: pointer;
-        }
-      }
+      // .copy {
+      //   span {
+      //     margin-left: 10px;
+      //     font-size: 24px;
+      //     color: var(--subtitle);
+      //     cursor: pointer;
+      //   }
+      // }
     }
   }
   .animation {
@@ -129,4 +171,7 @@
   box-shadow: 0 0 11px var(--title-alpha);
   color: var(--title);
   z-index: 1;
+  .icon-content_copy{
+    margin: 10px;
+  }
 }
