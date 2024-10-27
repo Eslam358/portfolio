@@ -19,7 +19,7 @@ const Hero = () => {
       })
       .catch((err) => console.error("fault"));
   };
-  const pdf_down = "https://portfolio-eslam.netlify.app/cv/frontEnd_Eslam.pdf";
+  const pdf_down = "https://portfolio-eslam.netlify.app/cv/front.pdf";
 
   const download_file = (url) => {
     fetch(url)
