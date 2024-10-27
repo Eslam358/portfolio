@@ -6,15 +6,14 @@
       width: 7rem;
       height: 7rem;
       border-radius: 50%;
-      border: 1px solid var(--blue);
+      border: 3px solid var(--blue);
       position: relative;
+      overflow: hidden;
 
       &:hover {
-        img {
-        }
       }
       img {
-        width: 100%;
+        width: 120px;
         transition: 0.3s;
       }
       &::after {
@@ -47,12 +46,12 @@
       letter-spacing: 1px;
       word-spacing: 3px;
       color: var(--subtitle);
-  
+
       transition: 0.3s;
-     
+
       // &:hover:not(:last-of-type) {
       //   color: var(--blue);
-  
+
       //   scale: 1.02;
       // }
       a {
@@ -61,7 +60,7 @@
         display: inline-block;
         &:hover {
           color: var(--blue);
-     
+
           scale: 1.02;
         }
       }
@@ -70,8 +69,6 @@
           margin-right: 5px;
           margin-left: 15px;
           font-size: 20px;
-
-       
         }
       }
       .icon-content_copy {
@@ -171,7 +168,7 @@
   box-shadow: 0 0 11px var(--title-alpha);
   color: var(--title);
   z-index: 1;
-  .icon-content_copy{
+  .icon-content_copy {
     margin: 10px;
   }
 }

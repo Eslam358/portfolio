@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Hero from "./components/2-hero/hero";
 import Header from "./components/1-header/header";
 import Contact from "./components/contact/contact";
@@ -20,6 +21,7 @@ function App() {
   const [scroll_y, setscroll_y] = useState(0);
   const prevCountRef = useRef(scroll_y);
   const button_top = useRef(null);
+  
   const [dark, setdark] = useState(
     localStorage.getItem("dark") !== "false" ? true : false
   );

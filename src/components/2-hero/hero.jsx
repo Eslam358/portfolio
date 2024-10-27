@@ -3,6 +3,8 @@ import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../animation/dev.json";
 import { useRef, useState } from "react";
 import { motion, useScroll } from "framer-motion";
+console.log("gggggggggggggg");
+
 const Hero = () => {
   const lottieRef = useRef();
   const [copy_text, setcopy_text] = useState("false");
@@ -37,7 +39,7 @@ const Hero = () => {
 
   return (
     <div className="hero flex between" id="hero">
-      <div className="info ">
+      <div className="info " >
         <motion.div
           className="img"
           initial={{ transform: `scale(0.5)` }}
@@ -45,7 +47,14 @@ const Hero = () => {
           whileInView={{ transform: "scale(1) " }}
           transition={{ type: "spring", damping: 5, stiffness: 53 }}
         >
-          <img src="eslam.png" alt="" />
+          <div
+ className="fff"
+          >
+            {" "}
+            <img src="eee.jpg" alt="" />
+            {/* <img width={"100%"} src="eslam.jpg" alt="" /> */}
+          </div>
+          {/* <img src="eslam.png" alt="" /> */}
         </motion.div>
         <h1> front end developer</h1>
         <p>
@@ -173,7 +182,7 @@ const Hero = () => {
       {copy_text !== "false" && (
         <div className="text-copy">
           <span className="icon-content_copy" />
-           {copy_text} 
+          {copy_text}
         </div>
       )}
     </div>
