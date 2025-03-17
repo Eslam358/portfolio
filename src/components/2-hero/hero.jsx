@@ -114,14 +114,7 @@ const Hero = () => {
             {""}
             <span className="icon-facebook-square" />
           </a>
-          {/* <a
-            href="https://wa.me/201002679358"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {" "}
-            <span className="icon-twitter" />{" "}
-          </a> */}
+       
           <a
             href="https://wa.me/201002679358"
             target="_blank"
@@ -138,24 +131,7 @@ const Hero = () => {
             {" "}
             <span className="icon-telegram" />{" "}
           </a>
-          {/* <button
-            title="copy phone number"
-            className="copy phone"
-            onClick={() => copy_phone("01002679358", "phone")}
-            rel="noopener noreferrer"
-          >
-            {" "}
-            <span className="icon-call" />{" "}
-          </button> */}
-          {/* <button
-            title="copy email"
-            className="copy email"
-            onClick={() => copy_phone("eslamaa900@gmail.com", "email")}
-            rel="noopener noreferrer"
-          >
-            {" "}
-            <span className="icon-envelope-o" />{" "}
-          </button> */}
+
 
           <button
             className="download_cv"

@@ -1,27 +1,31 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./main.scss";
 import { motion, useScroll } from "framer-motion";
 import { myProjects } from "../../data";
-const React_Arr = ["my-portfolio","portfolio", "react-project"]
+const React_Arr = ["my-portfolio", "portfolio", "react-project"];
+const Next_Arr = ["Add-task", "add_Todo_List", "react-project"];
+const Next_Arr2 = ["add_Todo_List", "app_Articles", "app_next"];
 
 const Main = ({ repo, lang, files, netlify }) => {
-
+  let Next = "";
   const [active, setactive] = useState("All");
   const [Arr, setArr] = useState(repo);
-  useEffect(()=>{
-    setArr(repo)
-  },[repo])
+  useEffect(() => {
+    setArr(repo);
+    console.log(".........", repo); //................................................................................................
+  }, [repo]);
   const select_language = (language) => {
+    Next = "";
     setactive(language);
-    if (language === "All" ) {
+    if (language === "All") {
       setArr(repo);
-      }else if( language === "react"){
-        setArr(repo.filter((a) => React_Arr.includes(a.name)));
-        
-      }
-      else {
-       setArr(repo.filter((a) => Object.keys(lang[a.name]).includes(language)));
+    } else if (language === "react") {
+      setArr(repo.filter((a) => React_Arr.includes(a.name)));
+    } else if (language === "next") {
+      setArr(repo.filter((a) => Next_Arr2.includes(a.name)));
+    } else {
+      setArr(repo.filter((a) => Object.keys(lang[a.name]).includes(language)));
     }
   };
   return (
@@ -53,6 +57,12 @@ const Main = ({ repo, lang, files, netlify }) => {
             <button>React & MUI</button>
           </li>
           <li
+            className={active === "next" ? "active" : null}
+            onClick={() => select_language("next")}
+          >
+            <button>Next</button>
+          </li>
+          <li
             className={active === "Vue" ? "active" : null}
             onClick={() => select_language("Vue")}
           >
@@ -80,15 +90,17 @@ const Main = ({ repo, lang, files, netlify }) => {
             transition={{ type: "spring", damping: 6, stiffness: 33, delay: 0 }}
             key={ind}
             style={{
-              order: netlify.filter(
-                (da) => da.build_settings.repo_path === a.full_name
-              )[0]
-                ? 1
-                : 2,
+              order:
+                a.full_name == "Eslam358/app_Articles"
+                  ? 1
+                  : netlify.filter(
+                      (da) => da.build_settings.repo_path === a.full_name
+                    )[0]
+                  ? 2
+                  : 3,
             }}
           >
             <div className="img">
-              {/* <img src={netlify[1].screenshot_url} alt="" /> */}
               <img
                 src={
                   netlify.filter(
@@ -97,19 +109,19 @@ const Main = ({ repo, lang, files, netlify }) => {
                     ? netlify.filter(
                         (da) => da.build_settings.repo_path === a.full_name
                       )[0].screenshot_url
-                    : 
-                    // `./images/${Math.floor(Math.random() * 10)}.jpg`
-"https://cdn.neowin.com/news/images/uploaded/2021/04/1619644762_github-desktop_story.jpg"
-                  }
+                    : a.full_name == "Eslam358/app_Articles"
+                    ? "https://app-articles.vercel.app/_next/image?url=%2Fcloud-hosting.png&w=640&q=75"
+                    : "https://cdn.neowin.com/news/images/uploaded/2021/04/1619644762_github-desktop_story.jpg"
+                }
                 alt=""
               />
             </div>
             <div className="info">
               <h3>{a.name}</h3>
-              <p>
+              {/* <p>
                 Lorem ipsum dolor sit amet consectetur elit adipisicing . Ex
                 tempore dolor in, accusantium laudantium accusamus.
-              </p>
+              </p> */}
             </div>
             <div className="action flex between">
               <div className="icon flex gap-1">
@@ -121,15 +133,18 @@ const Main = ({ repo, lang, files, netlify }) => {
                       ? netlify.filter(
                           (da) => da.build_settings.repo_path === a.full_name
                         )[0].deploy_url
+                      : a.full_name == "Eslam358/app_Articles"
+                      ? "https://app-articles.vercel.app/articles"
                       : "#"
                   }
+                  
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {" "}
                   <span className=" icon-link" />
                 </a>
-                <a href={a.git_url} target="_blank" rel="noopener noreferrer">
+                <a href={a.clone_url} target="_blank" rel="noopener noreferrer">
                   <span className=" icon-github-square" />
                 </a>
               </div>

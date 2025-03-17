@@ -56,8 +56,11 @@ main.main {
       border-radius: 5px;
       .img {
         overflow: hidden;
+        height:174px;
         img {
           width: 100%;
+          height: 100%;
+
         }
       }
       .info {
