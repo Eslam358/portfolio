@@ -48,10 +48,15 @@ function App() {
 
     prevCountRef.current = scroll_y;
   }, [scroll_y]);
+  useEffect(() => {
+    console.log("hhhhhhhhhhhh");
+  });
 
   // ****************** fetch data project from github and netlify and handel this data  *********************************************
 
+
   useEffect(() => {
+    
     fetch("https://api.github.com/users/Eslam358/repos", Token_headers)
       .then((a) => a.json())
       .then((data) => {

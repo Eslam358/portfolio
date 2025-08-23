@@ -2,21 +2,47 @@
 import { useEffect, useState } from "react";
 import "./main.scss";
 import { motion, useScroll } from "framer-motion";
-import { myProjects } from "../../data";
+import myProjects  from "../../projects/projects"
+console.log("",myProjects)
 const React_Arr = ["my-portfolio", "portfolio", "react-project"];
-const Next_Arr = ["Add-task", "add_Todo_List", "react-project"];
 const Next_Arr2 = ["add_Todo_List", "app_Articles", "app_next"];
+const express_node = ["express_node", "socket_IO"];
 
-const Main = ({ repo, lang, files, netlify }) => {
-  let Next = "";
+const Main = ({ repo, lang, netlify }) => {
+  console.log("lang",lang);
+  console.log("repo",repo)
+  console.log("netlify",netlify)
+repo = myProjects
+
+  //******************** */
+
+  const fullProjects = repo.map((project) => {
+    const matchingNetlify = netlify.find(
+      (n) => n.build_settings.repo_path === project.full_name
+    );
+  
+    return {
+      name: project.name,
+      full_name: project.full_name,
+      github: project.clone_url,
+      languages: project.language,
+      netlify: matchingNetlify ? matchingNetlify.deploy_url : null,
+      screenshot: matchingNetlify
+        ? matchingNetlify.screenshot_url
+        : "https://cdn.neowin.com/news/images/uploaded/2021/04/1619644762_github-desktop_story.jpg"
+    };
+  });
+  // console.log("fullProjects-----",fullProjects)
+  //******************** */
+
   const [active, setactive] = useState("All");
   const [Arr, setArr] = useState(repo);
-  useEffect(() => {
-    setArr(repo);
-    console.log(".........", repo); //................................................................................................
-  }, [repo]);
+  // useEffect(() => {
+  //   setArr(repo);
+  //   // console.log(".........", repo); //................................................................................................
+  // }, [repo]);
   const select_language = (language) => {
-    Next = "";
+  
     setactive(language);
     if (language === "All") {
       setArr(repo);
@@ -24,6 +50,8 @@ const Main = ({ repo, lang, files, netlify }) => {
       setArr(repo.filter((a) => React_Arr.includes(a.name)));
     } else if (language === "next") {
       setArr(repo.filter((a) => Next_Arr2.includes(a.name)));
+    } else if (language === "node") {
+      setArr(repo.filter((a) => express_node.includes(a.name)));
     } else {
       setArr(repo.filter((a) => Object.keys(lang[a.name]).includes(language)));
     }
@@ -98,6 +126,15 @@ const Main = ({ repo, lang, files, netlify }) => {
                     )[0]
                   ? 2
                   : 3,
+                  display:
+                a.full_name == "Eslam358/app_Articles"
+                  ? "block"
+                  : netlify.filter(
+                      (da) => da.build_settings.repo_path === a.full_name
+                    )[0]
+                  ? "block"
+                  : active !== "All"  ? "block" : "none",
+                
             }}
           >
             <div className="img">
