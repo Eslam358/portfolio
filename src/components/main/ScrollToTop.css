@@ -1,0 +1,61 @@
+/* ScrollToTop.css */
+.scroll-top-button_ {
+  position: fixed;
+  right: 30px;
+  bottom: 4000px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--blue, #3498db);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.scroll-top-button_.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-button_:hover {
+  transform: scale(1.1);
+}
+
+.scroll-top-button_ .icon {
+  position: absolute;
+  color: white;
+  font-size: 1.1rem;
+  transition: font-size 0.3s ease;
+}
+
+.scroll-top-button_ .progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.scroll-top-button_ .progress-ring circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+/* للهواتف */
+@media (max-width: 768px) {
+  .scroll-top-button_ {
+    right: 20px;
+    bottom: 25px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .scroll-top-button_ .icon {
+    font-size: 1rem;
+  }
+}

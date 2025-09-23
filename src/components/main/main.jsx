@@ -1,61 +1,86 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
+import { useEffect, useState , useMemo,useRef} from "react";
 import "./main.scss";
-import { motion, useScroll } from "framer-motion";
-import myProjects  from "../../projects/projects"
-console.log("",myProjects)
+import { motion } from "framer-motion";
+import SkeletonCard from "./loading/SkeletonCard"
+import myProjects from "../../projects/projects";
+
 const React_Arr = ["my-portfolio", "portfolio", "react-project"];
 const Next_Arr2 = ["add_Todo_List", "app_Articles", "app_next"];
 const express_node = ["express_node", "socket_IO"];
 
 const Main = ({ repo, lang, netlify }) => {
-  console.log("lang",lang);
-  console.log("repo",repo)
-  console.log("netlify",netlify)
-repo = myProjects
+  // repo = myProjects
 
   //******************** */
+  const fullProjects = useMemo(() => {
+    const fullProject = 
 
-  const fullProjects = repo.map((project) => {
-    const matchingNetlify = netlify.find(
-      (n) => n.build_settings.repo_path === project.full_name
-    );
+    repo.map((project) => {
+      const matchingNetlify = netlify.find(
+        (n) => n.build_settings.repo_path === project.full_name
+      );
+      let languages = lang[project.name] && Object.keys(lang[project.name]);
+      let order = matchingNetlify ? 4 : 5;
+      // ********
+      if (React_Arr.includes(project.name)) {
+        languages?.push("react");
+        order = 2;
+      } else if (Next_Arr2.includes(project.name)) {
+        languages?.push("next");
+        order = 1;
+      } else if (express_node.includes(project.name)) {
+        order = 3;
+        languages?.push("node");
+      }
+      // ********
+      const netlify_ = matchingNetlify
+        ? matchingNetlify.deploy_url
+        : project.full_name == "Eslam358/app_Articles"
+        ? "https://app-articles.vercel.app/articles"
+        : "#";
   
-    return {
-      name: project.name,
-      full_name: project.full_name,
-      github: project.clone_url,
-      languages: project.language,
-      netlify: matchingNetlify ? matchingNetlify.deploy_url : null,
-      screenshot: matchingNetlify
+      const screenshot = matchingNetlify
         ? matchingNetlify.screenshot_url
-        : "https://cdn.neowin.com/news/images/uploaded/2021/04/1619644762_github-desktop_story.jpg"
-    };
-  });
-  // console.log("fullProjects-----",fullProjects)
+        : project.full_name == "Eslam358/app_Articles"
+        ? "https://app-articles.vercel.app/_next/image?url=%2Fcloud-hosting.png&w=640&q=75"
+        : "https://cdn.neowin.com/news/images/uploaded/2021/04/1619644762_github-desktop_story.jpg";
+  
+      return {
+        name: project.name,
+        full_name: project.full_name,
+        github: project.clone_url,
+        languages,
+        netlify: netlify_,
+        screenshot,
+        order,
+      };
+    });
+    
+    return fullProject
+  }, [lang, netlify, repo]);
+  
+
+  useEffect(() => {
+    setArr(fullProjects)
+  }, [fullProjects]);
+
+
+
   //******************** */
 
   const [active, setactive] = useState("All");
-  const [Arr, setArr] = useState(repo);
-  // useEffect(() => {
-  //   setArr(repo);
-  //   // console.log(".........", repo); //................................................................................................
-  // }, [repo]);
+  const [Arr, setArr] = useState([]);
+
   const select_language = (language) => {
-  
     setactive(language);
     if (language === "All") {
-      setArr(repo);
-    } else if (language === "react") {
-      setArr(repo.filter((a) => React_Arr.includes(a.name)));
-    } else if (language === "next") {
-      setArr(repo.filter((a) => Next_Arr2.includes(a.name)));
-    } else if (language === "node") {
-      setArr(repo.filter((a) => express_node.includes(a.name)));
+      setArr(fullProjects);
     } else {
-      setArr(repo.filter((a) => Object.keys(lang[a.name]).includes(language)));
+      setArr(fullProjects.filter((a) => a.languages.includes(language)));
     }
   };
+
   return (
     <main className="main flex " id="Projects">
       <section className="left ">
@@ -104,7 +129,7 @@ repo = myProjects
           </li>
         </ul>
       </section>
-      <section className="right  flex gap-1 center">
+     { Arr.length > 0 ? <section className="right  flex gap-1 center">
         {Arr.map((a, ind) => (
           <motion.article
             // layout
@@ -119,38 +144,23 @@ repo = myProjects
             key={ind}
             style={{
               order:
-                a.full_name == "Eslam358/app_Articles"
-                  ? 1
-                  : netlify.filter(
-                      (da) => da.build_settings.repo_path === a.full_name
-                    )[0]
-                  ? 2
-                  : 3,
-                  display:
-                a.full_name == "Eslam358/app_Articles"
-                  ? "block"
-                  : netlify.filter(
-                      (da) => da.build_settings.repo_path === a.full_name
-                    )[0]
-                  ? "block"
-                  : active !== "All"  ? "block" : "none",
-                
+                a.order,
+              // display:
+              //   a.full_name == "Eslam358/app_Articles"
+              //     ? "block"
+              //     : netlify.filter(
+              //         (da) => da.build_settings.repo_path === a.full_name
+              //       )[0]
+              //     ? "block"
+              //     : active !== "All"
+              //     ? "block"
+              //     : "none",
             }}
           >
             <div className="img">
               <img
-                src={
-                  netlify.filter(
-                    (da) => da.build_settings.repo_path === a.full_name
-                  )[0]
-                    ? netlify.filter(
-                        (da) => da.build_settings.repo_path === a.full_name
-                      )[0].screenshot_url
-                    : a.full_name == "Eslam358/app_Articles"
-                    ? "https://app-articles.vercel.app/_next/image?url=%2Fcloud-hosting.png&w=640&q=75"
-                    : "https://cdn.neowin.com/news/images/uploaded/2021/04/1619644762_github-desktop_story.jpg"
-                }
-                alt=""
+                src={a.screenshot}
+                alt={a.name}
               />
             </div>
             <div className="info">
@@ -164,24 +174,15 @@ repo = myProjects
               <div className="icon flex gap-1">
                 <a
                   href={
-                    netlify.filter(
-                      (da) => da.build_settings.repo_path === a.full_name
-                    )[0]
-                      ? netlify.filter(
-                          (da) => da.build_settings.repo_path === a.full_name
-                        )[0].deploy_url
-                      : a.full_name == "Eslam358/app_Articles"
-                      ? "https://app-articles.vercel.app/articles"
-                      : "#"
+                    a.netlify
                   }
-                  
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {" "}
                   <span className=" icon-link" />
                 </a>
-                <a href={a.clone_url} target="_blank" rel="noopener noreferrer">
+                <a href={a.github} target="_blank" rel="noopener noreferrer">
                   <span className=" icon-github-square" />
                 </a>
               </div>
@@ -193,6 +194,38 @@ repo = myProjects
           </motion.article>
         ))}
       </section>
+      :
+      (
+        <section className="right  flex gap-1 center">
+
+
+        {[1,2,3,4].map((a) => (
+          <motion.article
+            // layout
+            initial={
+              a % 2 === 0
+                ? { transform: `scale(0.4) translateX(300px)` }
+                : { transform: `scale(0.4) translateX(-300px)` }
+            }
+            // animate={{ transform: "scale(1)" }}
+            whileInView={{ transform: "scale(1) translateX(0px)" }}
+            transition={{ type: "spring", damping: 6, stiffness: 33, delay: 0 }}
+            key={a}
+         
+          >
+
+        <SkeletonCard/>
+          </motion.article>))}
+        
+        </section>
+      )
+    
+    
+    
+    }
+
+   
+ 
     </main>
   );
 };

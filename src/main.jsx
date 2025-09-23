@@ -7,7 +7,7 @@ import './classes.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App1 />
+    <App/>
   </React.StrictMode>,
 
 )

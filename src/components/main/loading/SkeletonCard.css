@@ -1,0 +1,178 @@
+/* أنماط كرت التحميل (Skeleton) */
+.skeleton-card {
+    width: 100%;
+    background: #f8f9fa;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+  }
+  
+  .skeleton-img {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 2s infinite;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .skeleton-info {
+    padding: 20px;
+  }
+  
+  .skeleton-title {
+    width: 70%;
+    height: 24px;
+    background: #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    animation: skeleton-shimmer 2s infinite 0.2s;
+  }
+  
+  .skeleton-text {
+    width: 90%;
+    height: 16px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    animation: skeleton-shimmer 2s infinite 0.4s;
+  }
+  
+  .skeleton-text.short {
+    width: 60%;
+    animation: skeleton-shimmer 2s infinite 0.6s;
+  }
+  
+  .skeleton-text.small {
+    width: 40px;
+    height: 14px;
+    animation: skeleton-shimmer 2s infinite 0.8s;
+  }
+  
+  .skeleton-actions {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .skeleton-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .skeleton-button {
+    width: 32px;
+    height: 32px;
+    background: #e0e0e0;
+    border-radius: 50%;
+    animation: skeleton-shimmer 2s infinite 1s;
+  }
+  
+  .skeleton-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  /* Animations */
+  @keyframes skeleton-pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes skeleton-shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* دعم الوضع الداكن */
+  .dark .skeleton-card {
+    background: #2d3748;
+  }
+  
+  .dark .skeleton-img {
+    background: linear-gradient(90deg, #4a5568 25%, #5a6578 50%, #4a5568 75%);
+    background-size: 200% 100%;
+  }
+  
+  .dark .skeleton-title,
+  .dark .skeleton-text,
+  .dark .skeleton-button {
+    background: #4a5568;
+  }
+  
+  .dark .skeleton-actions {
+    border-top-color: #4a5568;
+  }
+  
+  /* تحسينات للاستجابة */
+  @media (max-width: 768px) {
+    .skeleton-img {
+      height: 150px;
+    }
+    
+    .skeleton-info {
+      padding: 15px;
+    }
+    
+    .skeleton-actions {
+      padding: 12px 15px;
+    }
+    
+    .skeleton-title {
+      height: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .skeleton-text {
+      height: 14px;
+      margin-bottom: 6px;
+    }
+  }
+  
+  /* تأثيرات hover إضافية */
+  .skeleton-card:hover {
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* فاريانتس إضافية للأنماط المختلفة */
+  .skeleton-card.compact .skeleton-img {
+    height: 150px;
+  }
+  
+  .skeleton-card.compact .skeleton-info {
+    padding: 15px;
+  }
+  
+  .skeleton-card.large .skeleton-img {
+    height: 250px;
+  }
+  
+  .skeleton-card.large .skeleton-info {
+    padding: 25px;
+  }
+  
+  /* تحسينات للأجهزة ذات اللمس */
+  @media (hover: none) {
+    .skeleton-card:hover {
+      transform: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+  }

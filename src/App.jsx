@@ -4,6 +4,7 @@ import Header from "./components/1-header/header";
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer/footer";
 import Main from "./components/main/main";
+import ScrollToTop from "./components/main/scroll_top_button";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 import Skills from "./components/skills/skills";
@@ -20,8 +21,7 @@ function App() {
   const [files, setfiles] = useState([]);
   const [scroll_y, setscroll_y] = useState(0);
   const prevCountRef = useRef(scroll_y);
-  const button_top = useRef(null);
-  
+
   const [dark, setdark] = useState(
     localStorage.getItem("dark") !== "false" ? true : false
   );
@@ -35,28 +35,9 @@ function App() {
     }
   }, [dark]);
 
-  // view and hading button and head
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (scrollY > 750) {
-        button_top.current.classList.add("active");
-      } else {
-        button_top.current.classList.remove("active");
-      }
-      setscroll_y(scrollY);
-    });
-
-    prevCountRef.current = scroll_y;
-  }, [scroll_y]);
-  useEffect(() => {
-    console.log("hhhhhhhhhhhh");
-  });
-
   // ****************** fetch data project from github and netlify and handel this data  *********************************************
 
-
   useEffect(() => {
-    
     fetch("https://api.github.com/users/Eslam358/repos", Token_headers)
       .then((a) => a.json())
       .then((data) => {
@@ -74,38 +55,8 @@ function App() {
             .catch((er) => {
               console.log(`fetch repo name ${repo.name}`, er);
             });
-
-          fetch(
-            `https://api.github.com/repos/Eslam358/${repo.name}/contents`,
-            Token_headers
-          )
-            .then((a) => a.json())
-            .then((fileD) => {
-              setfiles((prevfile) => ({
-                ...prevfile,
-                [repo.name]: fileD.map((fi) => fi.name),
-              }));
-
-              //               setfiledata((prevfile) => ({
-              //                 ...prevfile,
-              //                 [repo.name]: ( fileD.map((fi) =>{
-              // if (fi.name.endsWith(".js") || fi.name.endsWith(".jsx") || fi.name.endsWith(".tsx")) {
-
-              //   fetch(fileD.download_url, {
-              //     headers: { Authorization: `token ${Token}` },
-              //   }).then(a=> a.text()).then(f=>{
-              //   if (f.includes("import React") || f.includes("useState") || f.includes("  useEffect")) {
-              //     console.log(f);
-              //   }
-              //   })
-              // }
-
-              // return "jj"
-              //                 } )),
-              //               }));
-            })
-            .catch((er) => {});
         });
+        console.log("lang-----", lang);
       })
       .catch((er) => {
         console.log("main fetch", er);
@@ -123,7 +74,7 @@ function App() {
       });
   }, []);
 
-  // ****************************************************************
+  // ******************************************************
 
   return (
     <div className={dark ? "dark App" : "App light"}>
@@ -136,19 +87,16 @@ function App() {
 
       <Hero />
       <hr className="hr-between" />
-      <Main repo={repo} lang={lang} files={files} netlify={netlify} />
+        <Main repo={repo} lang={lang} files={files} netlify={netlify} />
+      
       <hr className="hr-between" />
-      <Skills/>
+      <Skills />
       <hr className="hr-between" />
       <Contact />
       <hr className="hr-between" />
       <Footer />
 
-      <a
-        ref={button_top}
-        href="#"
-        className="button float icon-chevron-up flex center "
-      />
+      <ScrollToTop />
     </div>
   );
 }
