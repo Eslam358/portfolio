@@ -19,23 +19,23 @@ const Hero = () => {
       })
       .catch((err) => console.error("fault"));
   };
-  const pdf_down = "https://portfolio-eslam.netlify.app/cv/FullStack.pdf";
+  // const pdf_down = "https://portfolio-eslam.netlify.app/cv/FullStack.pdf";
 
-  const download_file = (url) => {
-    fetch(url)
-      .then((res) => res.blob())
-      .then((blob) => {
-        const blob_url = window.URL.createObjectURL(new Blob([blob]));
+  // const download_file = (url) => {
+  //   fetch(url)
+  //     .then((res) => res.blob())
+  //     .then((blob) => {
+  //       const blob_url = window.URL.createObjectURL(new Blob([blob]));
 
-        const fileName = "cv/" + url.split("/").pop();
-        const atag = document.createElement("a");
-        atag.href = blob_url;
-        atag.setAttribute("download", fileName);
-        document.body.appendChild(atag);
-        atag.click();
-        atag.remove();
-      });
-  };
+  //       const fileName = "cv/" + url.split("/").pop();
+  //       const atag = document.createElement("a");
+  //       atag.href = blob_url;
+  //       atag.setAttribute("download", fileName);
+  //       document.body.appendChild(atag);
+  //       atag.click();
+  //       atag.remove();
+  //     });
+  // };
 
   return (
     <div className="hero flex between" id="hero">
@@ -133,13 +133,16 @@ const Hero = () => {
             <span className="icon-telegram" />{" "}
           </a>
 
-          <button
+          <a
+          href="https://portfolio-eslam.netlify.app/cv/FullStack.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="download_cv"
             title="download the CV "
-            onClick={() => download_file(pdf_down)}
+            // onClick={() => download_file(pdf_down)}
           >
             CV <span className=" flex center icon-download " />
-          </button>
+          </a>
           {/* </a> */}
         </div>
       </div>
