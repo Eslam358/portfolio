@@ -12,7 +12,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="right">
-        <h4>© 2023 Spencer Sharp. All rights reserved.</h4>
+        <h4>© 2025 Spencer Sharp. All rights reserved.</h4>
       </div>
     </footer>
   );

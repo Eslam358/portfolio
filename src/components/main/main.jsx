@@ -13,7 +13,7 @@ const Main = ({ repo, lang, netlify }) => {
   // repo = myProjects
 
   //******************** */
-  const fullProjects = useMemo(() => {
+  const fullProjects_ = useMemo(() => {
     const fullProject = 
 
     repo.map((project) => {
@@ -59,6 +59,8 @@ const Main = ({ repo, lang, netlify }) => {
     
     return fullProject
   }, [lang, netlify, repo]);
+
+  const fullProjects = fullProjects_.length > 0 ?fullProjects_:myProjects;
   
 
   useEffect(() => {
@@ -82,7 +84,7 @@ const Main = ({ repo, lang, netlify }) => {
   };
 
   return (
-    <main className="main flex " id="Projects">
+    <main className="main flex ">
       <section className="left ">
         <ul className="flex column center ">
           <li
@@ -145,16 +147,6 @@ const Main = ({ repo, lang, netlify }) => {
             style={{
               order:
                 a.order,
-              // display:
-              //   a.full_name == "Eslam358/app_Articles"
-              //     ? "block"
-              //     : netlify.filter(
-              //         (da) => da.build_settings.repo_path === a.full_name
-              //       )[0]
-              //     ? "block"
-              //     : active !== "All"
-              //     ? "block"
-              //     : "none",
             }}
           >
             <div className="img">
@@ -215,7 +207,8 @@ const Main = ({ repo, lang, netlify }) => {
           >
 
         <SkeletonCard/>
-          </motion.article>))}
+          </motion.article>
+        ))}
         
         </section>
       )

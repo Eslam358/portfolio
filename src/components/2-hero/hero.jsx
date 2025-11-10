@@ -39,7 +39,7 @@ const Hero = () => {
 
   return (
     <div className="hero flex between" id="hero">
-      <div className="info " >
+      <div className="info ">
         <motion.div
           className="img"
           initial={{ transform: `scale(0.5)` }}
@@ -47,9 +47,7 @@ const Hero = () => {
           whileInView={{ transform: "scale(1) " }}
           transition={{ type: "spring", damping: 5, stiffness: 53 }}
         >
-          <div
- className="fff"
-          >
+          <div className="fff">
             {" "}
             <img src="eee.jpg" alt="" />
             {/* <img width={"100%"} src="eslam.jpg" alt="" /> */}
@@ -58,9 +56,12 @@ const Hero = () => {
         </motion.div>
         <h1> front end developer</h1>
         <p>
-          I’m Eslam Fayez, a front end developer self-learner frontend developer
-          with good skills. Seeking for good opportunity to improve my skills
-          and learn new skills.
+          Passionate Frontend Developer with expertise in modern web
+          technologies including React, Next.js, and TypeScript. Strong
+          foundation in creating responsive, user-friendly applications with
+          clean code architecture. Experienced in full-stack development with
+          MongoDB and Supabase. Committed to continuous learning and
+          implementing best practices in web development.
         </p>
         <h4>
           {" "}
@@ -114,7 +115,7 @@ const Hero = () => {
             {""}
             <span className="icon-facebook-square" />
           </a>
-       
+
           <a
             href="https://wa.me/201002679358"
             target="_blank"
@@ -131,7 +132,6 @@ const Hero = () => {
             {" "}
             <span className="icon-telegram" />{" "}
           </a>
-
 
           <button
             className="download_cv"
