@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import { motion } from "framer-motion";
 
 import SkeletonCard from '../main/loading/SkeletonCard';
@@ -40,7 +39,6 @@ export default function Slider() {
         {myProjects.map((project, index) => (
            
           <SwiperSlide key={project.id + "_"+ index }>
-            {/* <div style={{width:"100%",height:"100px",backgroundColor:"red"}}></div> */}
             <motion.div
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}

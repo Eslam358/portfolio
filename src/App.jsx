@@ -27,6 +27,18 @@ function App() {
     }
   }, [dark]);
 
+  useEffect(() => {
+ document.querySelector("body");
+  window.addEventListener("scroll", () => {
+      setscroll_y(window.scrollY);
+      prevCountRef.current = scroll_y;
+    });
+    return () => { 
+      window.removeEventListener("scroll", () => {})}
+
+  
+  }, [scroll_y]);
+
   return (
     <div className={dark ? "dark App" : "App light"}>
       <Header
