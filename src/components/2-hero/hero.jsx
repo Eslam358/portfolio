@@ -139,6 +139,7 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="download_cv"
             title="download the CV "
+            style={{width:"100px"}}
             // onClick={() => download_file(pdf_down)}
           >
             CV <span className=" flex center icon-download " />
