@@ -32,7 +32,7 @@ export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) 
           <img
             src={project.screenshot}
             alt={project.name}
-            loading="lazy"
+            // loading="lazy"
           />
           <div className="image-overlay" />
         </div>

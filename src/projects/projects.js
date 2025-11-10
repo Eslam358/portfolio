@@ -311,7 +311,7 @@ const myProjects = [
     name: "Restaurant Booking System",
     description:
       "Created a comprehensive restaurant booking platform with secure database operations, custom hooks, clean code architecture, and reusable components. Implemented loading states, toast notifications, and success UI with responsive design.",
-    screenshot: "../../public/images/download.png",
+    screenshot: "images/download.png",
     technologies: ["Next.js", "Supabase", "Tailwind CSS", "ShadCN UI"],
     category: "fullstack",
     netlify: "http://restaurant-booking-taples.vercel.app",
