@@ -4,12 +4,13 @@
 section.section{
   h2{
     display: flex;
+    gap:20px;
     align-items: center;
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     color: var(--title);
     span{
-      margin-right: 3rem;
+      // margin-right: 3rem;
       color: var(--icon);
     }
   }

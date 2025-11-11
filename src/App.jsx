@@ -8,15 +8,23 @@ import { useEffect, useState } from "react";
 import { useRef } from "react";
 import Slider from "./components/project/Slider";
 import Skills from "./components/skills/skills";
+import { useTranslation } from "react-i18next";
+// *******************
 
+  // const { i18n } = useTranslation();
+
+
+// *******************
 
 function App() {
+  const { i18n } = useTranslation();
   const [scroll_y, setscroll_y] = useState(0);
   const prevCountRef = useRef(scroll_y);
 
   const [dark, setdark] = useState(
     localStorage.getItem("dark") !== "false" ? true : false
   );
+
   // Dark mode
   useEffect(() => {
     const body = document.querySelector("body");
@@ -38,14 +46,23 @@ function App() {
 
   
   }, [scroll_y]);
+  useEffect(() => {
+    document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
+    
+  }, [i18n.language]);
+
+  // i18n.on('languageChanged', () => {
+  //   window.scrollTo(0, 0);
+  // });
 
   return (
-    <div className={dark ? "dark App" : "App light"}>
+    <div  className={dark ? "dark App" : "App light"}>
       <Header
         visible={scroll_y - prevCountRef.current <= 0}
         dark={dark}
         setdark={setdark}
       />
+ 
       <div className="hr-between" />
 
       <Hero />

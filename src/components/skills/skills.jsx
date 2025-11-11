@@ -37,12 +37,15 @@ import {
   JwtIcon,
   Materialui
 } from '../icons/SvgIcons';
+import { useTranslation } from "react-i18next";
+
 
 const Skills = () => {
+      const { t } = useTranslation();
     return (
         <div className="skills" id="skills">
             <h2 className="flex center">
-                Skills & Technologies
+               {t("skills_.skills")}
             </h2>
             
             <div className="co_skill flex center">

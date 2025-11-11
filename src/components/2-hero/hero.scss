@@ -59,7 +59,8 @@
       color: var(--subtitle);
     }
     h4 {
-      line-height: 2rem;
+      // line-height: 2rem;
+      margin-block:10px ;
       letter-spacing: 1px;
       word-spacing: 3px;
       color: var(--subtitle);
@@ -89,7 +90,7 @@
         }
       }
       .icon-content_copy {
-        margin-left: 1rem;
+        // margin-left: 1rem;
         color: var(--title-alpha);
         cursor: pointer;
         &:hover {

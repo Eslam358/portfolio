@@ -11,7 +11,7 @@ export const swiperConfig = {
     },
     modules: [Autoplay, Pagination, Navigation],
     autoplay: { 
-      delay: 9000, 
+      delay: 99000, 
       disableOnInteraction: false,
       pauseOnMouseEnter: true
     },

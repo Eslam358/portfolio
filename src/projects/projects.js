@@ -279,7 +279,7 @@ const projects = [
       "https://d33wubrfki0l68.cloudfront.net/649555a40286f407ca662034/screenshot_2023-06-23-08-19-59-0000.png",
   },
 ];
-const myProjects = [
+const myProject = [
   {
     id: 1,
     name: "E-Commerce Application",
@@ -355,5 +355,73 @@ const myProjects = [
     featured: false,
   },
 ];
-
+export const myProjects = [
+  {
+    id: 1,
+    name: "projectDetails.ecommerce.name",
+    description: "projectDetails.ecommerce.description",
+    screenshot:
+      "https://d33wubrfki0l68.cloudfront.net/674b37557bf2b40008490af0/screenshot_2024-11-30-16-04-16-0000.webp",
+    technologies: ["React", "Redux Toolkit", "Material-UI", "Sass", "Axios"],
+    category: "fullstack",
+    netlify: "https://main-commerceshopping.netlify.app/",
+    github: "https://github.com/Eslam358/app_commerce",
+    featured: true,
+  },
+  {
+    id: 2,
+    name: "projectDetails.articles.name",
+    description: "projectDetails.articles.description",
+    screenshot:
+      "https://app-articles.vercel.app/_next/image?url=%2Fcloud-hosting.png&w=640&q=75",
+    technologies: ["Next.js", "MongoDB", "Tailwind", "Zod", "JWT"],
+    category: "fullstack",
+    netlify: "https://app-articles.vercel.app/articles",
+    github: "https://github.com/Eslam358/app_Articles",
+    featured: true,
+  },
+  {
+    id: 3,
+    name: "projectDetails.restaurant.name",
+    description: "projectDetails.restaurant.description",
+    screenshot: "images/download.png",
+    technologies: ["Next.js", "Supabase", "Tailwind CSS", "ShadCN UI"],
+    category: "fullstack",
+    netlify: "http://restaurant-booking-taples.vercel.app",
+    github: "https://github.com/Eslam358/restaurant_Booking_Taples",
+    featured: true,
+  },
+  {
+    id: 4,
+    name: "projectDetails.servare.name",
+    description: "projectDetails.servare.description",
+    screenshot:
+      "https://cdn.neowin.com/news/images/uploaded/2021/04/1619644762_github-desktop_story.jpg",
+    technologies: [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+      "Bcrypt.js",
+      "Multer",
+    ],
+    category: "backend",
+    netlify: "https://express-node-bay.vercel.app",
+    github: "https://github.com/Eslam358/express_node",
+    featured: false,
+  },
+  {
+    id: 6,
+    name: "projectDetails.cardGame.name",
+    description: "projectDetails.cardGame.description",
+    screenshot:
+      "https://d33wubrfki0l68.cloudfront.net/648d603244734c5cb44f139e/screenshot_2023-06-17-07-26-51-0000.png",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    category: "frontend",
+    netlify: "https://amazing-malasada-e11808.netlify.app/",
+    github: "https://github.com/Eslam358/Game",
+    featured: false,
+  },
+];
 export default myProjects;

@@ -1,0 +1,89 @@
+{
+  "welcome": "Welcome to my portfolio",
+  "contact": "Contact Me",
+  "home": "Home",
+  "about": "About",
+  "projects": "Projects",
+  "skills": "Skills",
+  "contact_nav": "Contact",
+  "frontend_title": "Front End Developer",
+  "frontend_description": "Passionate Frontend Developer with expertise in modern web technologies including React, Next.js, and TypeScript. Strong foundation in creating responsive, user-friendly applications with clean code architecture. Experienced in full-stack development with MongoDB and Supabase. Committed to continuous learning and implementing best practices in web development.",
+  "projects_title": "Projects",
+  "projects_description": "A collection of my recent works and personal projects showcasing my skills in building modern, responsive, and user-friendly web applications.",
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Welcome to Our Website",
+    "subtitle": "We provide you with the best digital solutions that meet your needs and keep up with your future aspirations",
+    "cta": "Get Started"
+  },
+  "projects_": {
+    "title": "Our Projects",
+    "subtitle": "Browse a collection of our most prominent diverse projects",
+    "filter": {
+      "all": "All",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "fullstack": "Full Stack"
+    },
+    "features": {
+      "liveDemo": "Live Demo",
+      "viewCode": "View Code",
+      "technologies": "Technologies Used"
+    }
+  },
+  "projectDetails": {
+    "ecommerce": {
+      "name": "E-Commerce Application",
+      "description": "Developed a fully responsive e-commerce platform with comprehensive features including product browsing, category filtering, user authentication, shopping cart management, and wishlist functionality. Implemented global state management and modern UI components."
+    },
+    "articles": {
+      "name": "Article Management System",
+      "description": "Built a full-stack blogging platform with complete content management capabilities allowing users to create, update, delete, and comment on articles. Implemented authentication, protected routes, and real-time UI updates using Next.js server actions."
+    },
+    "restaurant": {
+      "name": "Restaurant Booking System",
+      "description": "Created a comprehensive restaurant booking platform with secure database operations, custom hooks, clean code architecture, and reusable components. Implemented loading states, toast notifications, and success UI with responsive design."
+    },
+    "servare": {
+      "name": "Servare - Blogging Platform API",
+      "description": "Developed a comprehensive RESTful API for a blogging platform with user authentication, article management, and comment system. Implemented secure JWT-based authentication, CRUD operations, and search functionality with MongoDB integration."
+    },
+    "cardGame": {
+      "name": "Card Matching Game",
+      "description": "Interactive memory game with score tracking and responsive design for all device sizes. Features engaging gameplay with smooth animations and intuitive user interface."
+    }
+  },
+  "about_": {
+    "title": "About Me",
+    "description": "I am a passionate frontend developer with experience in the latest web technologies",
+    "experience": "Years of Experience",
+    "projects_completed": "Projects Completed",
+    "clients": "Happy Clients",
+    "reply_message": "Thanks, I'll reply ASAP"
+  },
+  "skills_": {
+    "skills": "Skills & Technologies"
+  },
+  "contact_": {
+    "title": "Contact Me",
+
+    "contact_text": "Contact us for more information and get notified when I publish something new.",
+
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "location": "Location",
+    "phone": "Phone"
+  },
+  "footer": {
+    "rights": "All Rights Reserved",
+    "description": "We provide innovative digital solutions that meet the needs of the modern era",
+    "copyright": "© 2025 Spencer Sharp. All rights reserved."
+  }
+}

@@ -12,16 +12,20 @@ interface Project {
   featured: boolean;
 }
 
+import { useTranslation } from "react-i18next";
+
 interface ProjectCardProps {
   project: Project;
   onMoreClick: (project: Project) => void;
 }
 
 export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) {
+  const { t, i18n } = useTranslation();
+
   return (
-    <motion.article 
+    <motion.article
       className="project-card"
-      whileHover={{ 
+      whileHover={{
         scale: 1.02,
         y: -5,
         transition: { duration: 0.2 }
@@ -31,32 +35,32 @@ export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) 
         <div className="card-image">
           <img
             src={project.screenshot}
-            alt={project.name}
-            // loading="lazy"
+            alt={t(project.name)}
+          // loading="lazy"
           />
           <div className="image-overlay" />
         </div>
       </div>
-      
+
       <div className="card-content">
-        <motion.h3 
+        <motion.h3
           className="project-title"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1 }}
         >
-          {project.name}
+          {t(project.name)}
         </motion.h3>
-        
-        <motion.p 
+
+        <motion.p
           className="project-description"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          {project.description.length > 100 
-            ? `${project.description.substring(0, 100)}...` 
-            : project.description
+          {t(project.description).length > 100
+            ? `${t(project.description).substring(0, 100)}...`
+            : t(project.description)
           }
         </motion.p>
 
@@ -72,7 +76,7 @@ export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) 
           )}
         </div>
       </div>
-      
+
       <div className="card-actions">
         <div className="action-icons">
           {project.netlify && (
@@ -80,7 +84,7 @@ export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) 
               href={project.netlify}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Visit ${project.name} live demo`}
+              aria-label={`Visit ${t(project.name)} live demo`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={(e) => e.stopPropagation()}
@@ -89,11 +93,11 @@ export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) 
             </motion.a>
           )}
           {project.github && (
-            <motion.a 
-              href={project.github} 
-              target="_blank" 
+            <motion.a
+              href={project.github}
+              target="_blank"
               rel="noopener noreferrer"
-              aria-label={`View ${project.name} source code`}
+              aria-label={`View ${t(project.name)} source code`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={(e) => e.stopPropagation()}
@@ -102,16 +106,17 @@ export default function ProjectCard({ project, onMoreClick }: ProjectCardProps) 
             </motion.a>
           )}
         </div>
-        
-        <motion.button 
+
+        <motion.button
           className="more-button"
+          style={{ display: "flex" }}
           whileHover={{ x: 5 }}
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 400 }}
           onClick={() => onMoreClick(project)}
         >
           <span>more</span>
-          <span className="icon-arrow-right" />
+          <span className="icon-arrow-right" style={{ rotate: `${i18n.language == "ar" ? "180deg" : ""}` }} />
         </motion.button>
       </div>
     </motion.article>

@@ -3,9 +3,9 @@ import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../animation/dev.json";
 import { useRef, useState } from "react";
 import { motion, useScroll } from "framer-motion";
-console.log("gggggggggggggg");
-
+import { useTranslation } from "react-i18next";
 const Hero = () => {
+  const { t } = useTranslation();
   const lottieRef = useRef();
   const [copy_text, setcopy_text] = useState("false");
   const copy_phone = (text, mas) => {
@@ -19,23 +19,6 @@ const Hero = () => {
       })
       .catch((err) => console.error("fault"));
   };
-  // const pdf_down = "https://portfolio-eslam.netlify.app/cv/FullStack.pdf";
-
-  // const download_file = (url) => {
-  //   fetch(url)
-  //     .then((res) => res.blob())
-  //     .then((blob) => {
-  //       const blob_url = window.URL.createObjectURL(new Blob([blob]));
-
-  //       const fileName = "cv/" + url.split("/").pop();
-  //       const atag = document.createElement("a");
-  //       atag.href = blob_url;
-  //       atag.setAttribute("download", fileName);
-  //       document.body.appendChild(atag);
-  //       atag.click();
-  //       atag.remove();
-  //     });
-  // };
 
   return (
     <div className="hero flex between" id="hero">
@@ -54,36 +37,30 @@ const Hero = () => {
           </div>
           {/* <img src="eslam.png" alt="" /> */}
         </motion.div>
-        <h1> front end developer</h1>
-        <p>
-          Passionate Frontend Developer with expertise in modern web
-          technologies including React, Next.js, and TypeScript. Strong
-          foundation in creating responsive, user-friendly applications with
-          clean code architecture. Experienced in full-stack development with
-          MongoDB and Supabase. Committed to continuous learning and
-          implementing best practices in web development.
-        </p>
-        <h4>
+        <h1>{t("frontend_title")}</h1>
+        <p>{t("frontend_description")}</p>
+        <h4 style={{display:"flex", gap:"10px", justifyItems:"center"}}>
           {" "}
           <button className="copy phone" rel="noopener noreferrer">
             {" "}
             <span className=" icon-call" />{" "}
           </button>{" "}
-          01002679358
+       <span>01002679358</span>   
           <span
             title="copy phone number"
             onClick={() => copy_phone("01002679358", "phone")}
             className="icon-content_copy"
           />
         </h4>
-        <h4>
+        <h4 style={{display:"flex", gap:"10px", justifyItems:"center"}}>
           <a
             href="mailto:eslam900aa@gmail.com"
             className="copy email"
             rel="noopener noreferrer"
           >
-            <span className="icon-envelope-o" /> eslamaa900@gmail.com
+            <span className="icon-envelope-o" />
           </a>
+            <span>eslamaa900@gmail.com</span> 
           <span
             className="icon-content_copy"
             title="copy email"
@@ -139,10 +116,10 @@ const Hero = () => {
             rel="noopener noreferrer"
             className="download_cv"
             title="download the CV "
-            style={{width:"100px"}}
-            // onClick={() => download_file(pdf_down)}
+            style={{width:"100px",textAlign:"center"}}
           >
-            CV <span className=" flex center icon-download " />
+            CV  <span className=" flex center icon-download " style={{margin:"10px"}} />
+           
           </a>
           {/* </a> */}
         </div>
@@ -154,7 +131,6 @@ const Hero = () => {
           className=""
           onLoadedImages={() => {
             // @ts-ignore
-            // https://lottiereact.com/
             lottieRef.current.setSpeed(0.5);
           }}
         />

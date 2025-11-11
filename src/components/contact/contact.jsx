@@ -7,20 +7,22 @@ import Lottie from "lottie-react";
 import groovyWalkAnimation from "../../animation/contact.json";
 import Animation_done from "../../animation/done.json";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
   const lottieRef = useRef();
+    const { t } = useTranslation();
 
   const [state, handleSubmit] = useForm("xbjneqjr");
   return (
     <section className="section" id="Contact">
       <h2>
         <span className="icon-envelope-o" />
-        contact us.
+       <span >{t("contact_.title")}</span>
       </h2>
       <p>
-        Contact us for more information and Get notified when I publish
-        something new.
+        {t("contact_.contact_text")}
+      
       </p>
 
       <div className="main-Contact flex ">
@@ -30,9 +32,9 @@ const Contact = () => {
 
           </div> */}
             <label htmlFor="email " className="flex   gap-1 center">
-              Email Address:
+            {t("contact_.email")} :
               <input
-                placeholder="Email Address"
+                placeholder={t("contact_.email")}
                 id="email"
                 type="email"
                 name="email"
@@ -46,8 +48,8 @@ const Contact = () => {
             />
 
             <label htmlFor="Message" className="flex   gap-1 center">
-              Your message:
-              <textarea placeholder="Message" id="message" name="message" />
+            {t("contact_.message")}:
+              <textarea placeholder={t("contact_.message")} id="message" name="message" />
             </label>
             <ValidationError
               prefix="Message"
@@ -55,7 +57,7 @@ const Contact = () => {
               errors={state.errors}
             />
             <button type="submit" disabled={state.submitting}>
-              Submit
+            {t("contact_.send")}
             </button>
           </form>
 
@@ -78,7 +80,7 @@ const Contact = () => {
                     }}
                   />
                 </span>
-                <span>{"Thanks, I'll reply ASAP :"}</span>{" "}
+                <span>{t("contact_.reply_message")} :</span>{" "}
               </h3>
             }
             {state.errors && (
